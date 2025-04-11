@@ -41,17 +41,59 @@
             padding-top: 20px;
         }
     </style>
+    </style>
+    <div id="header">
+      <style>
+        body {
+            background-color: lightblue;
+        }
+
+        header {
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 99;
+            padding: 12px;
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            margin: 0 30px;
+            text-decoration: none;
+            font-weight: bold;
+            color: #333;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+        main {
+            padding-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
+    
     <header>
         <div class="container text-center">
             <div class="row">
                 <nav>
-                    <pagelink setURI="">Home</a>
-                    <pagelink setURI="about">Projects</a>
-                    <pagelink setURI="contact">Contact</a>
-                    <pagelink setURI="credits">Credits</a>
+                    <a class="page-link" href="/">Home</a>
+                    <a class="page-link" href="/projects">Projects</a>
+                    <a class="page-link" href="">Contact</a>
+                    <a class="page-link" href="">Credits</a>
                 </nav>
             </div>
         </div>

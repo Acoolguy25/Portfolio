@@ -1,25 +1,34 @@
-let urlData = new URL(window.location.href);
-console.log(urlData.pathname);
-let pathname = urlData.pathname;
 
-if (pathname === "/") {
-    pathname = "home";
-} else {
-    pathname = pathname.substring(1); // remove the leading slash
+
+if (!document.loader){
+    let urlData = new URL(window.location.href);
+    let pathname = urlData.pathname;
+    document.loader = 1;
+    
+    let pathName2Load;
+    if (pathname === "/") {
+        pathName2Load = "/htmls/home";
+    } else {
+        pathName2Load = "/index";
+    }
+    
+    $("#content").load(pathName2Load + '.html');
+    
+    $("#header").load('/htmls/header.html');
+    
+    let scr2Run = ["/scripts/text_loader"]
+    if (pathname != "/"){
+        scr2Run.push([pathname + pathname.replaceAll("/", "")])
+    }
+    for (sc of scr2Run){
+        fetch(sc + ".js")
+            .then(res => res.text())
+            .then(data => {
+                const scr = document.createElement("script");
+                scr.text = data;
+                document.body.appendChild(scr);
+            });
+    }
+    
 }
 
-// Using jQuery to load the HTML into the element with id "content"
-$("#content").load("htmls/" + pathname + '.html', function(response, status, xhr) {
-    if (status === 'error') {
-      console.error('Error loading content:', xhr.status, xhr.statusText);
-    }
-});
-
-// Dynamically load and execute an external JavaScript file
-fetch("scripts/text_loader.js")
-    .then(res => res.text())
-    .then(data => {
-        const scr = document.createElement("script");
-        scr.text = data;
-        document.body.appendChild(scr);
-    });
