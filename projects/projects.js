@@ -1,7 +1,11 @@
 fetch("https://api.github.com/users/acoolguy25/repos").then(data => data.json()).then((data) => {
-    // console.log(data)
     const githubList = document.getElementById('github-list');
     data.forEach(item => {
+        if (item.name == "wiki"){
+            item.name = "HKN Wiki"
+            item.language = "HKN"
+            item.description = "Forked version of HKN wiki with minor improvements"
+        }
         // Create list item
         const li = document.createElement('li');
         li.style.listStyle = 'none';
@@ -65,7 +69,6 @@ fetch("https://api.github.com/users/acoolguy25/repos").then(data => data.json())
         // Append elements
         textContainer.appendChild(title);
         textContainer.appendChild(description);
-        // textContainer.appendChild(description2);
         link.appendChild(img);
         link.appendChild(textContainer);
         // link.appendChild(box)
