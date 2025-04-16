@@ -1,2 +1,6 @@
-Welcome to my website!
-This website is mainly a showcase to my projects, as well as my headers. You can find them at the top.
+<p style="font-size: 30px;">
+Name: Ryan Bahary
+Age: <Age>
+Birthday: July 12, 2005
+(<DaysToBirthday> days)
+</p>
