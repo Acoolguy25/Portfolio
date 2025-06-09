@@ -1,109 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <style>
-        body {
-            background-color: lightblue;
-        }
+  <meta charset="UTF-8">
+  <style>
+    body {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    header {
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 99;
+      padding: 12px;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
 
-        header {
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 99;
-            padding: 12px;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
+    nav .page-link {
+      margin: 0 30px;
+      text-decoration: none;
+      font-weight: bold;
+      color: #333;
+      background-color: white; /* from .page-link */
+      font-size: 22px;
+    }
 
-        nav pagelink {
-            margin: 0 30px;
-            text-decoration: none;
-            font-weight: bold;
-            color: #333;
-        }
+    nav .page-link:hover {
+        /* background-color: #FFFF; /* highlight */
+        /* text-decoration: none; */
+        color: #000;
+        font-weight: bold;
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+    }
 
-        nav pagelink:hover {
-            text-decoration: underline;
-            text-decoration-thickness: 3px;
-        }
+    .container {
+      max-width: 800px;
+      margin: auto;
+    }
 
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
+    .text-center {
+      text-align: center;
+    }
 
-        .text-center {
-            text-align: center;
-        }
-        main {
-            padding-top: 20px;
-        }
-    </style>
-    </style>
-    <div id="header">
-      <style>
-        body {
-            background-color: lightblue;
-        }
-
-        header {
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 99;
-            padding: 12px;
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        nav a {
-            margin: 0 30px;
-            text-decoration: none;
-            font-weight: bold;
-            color: #333;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-            text-decoration-thickness: 3px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-        main {
-            padding-top: 10px;
-        }
-    </style>
+    main {
+      padding-top: 20px;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="container text-center">
+      <nav>
+        <a class="page-link" href="/">Demos</a>
+        <a class="page-link" href="/projects">Projects</a>
+        <a class="page-link" href="/about-me">About Me</a>
+        <a class="page-link" href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    
-    <header>
-        <div class="container text-center">
-            <div class="row">
-                <nav>
-                    <a class="page-link" href="/">Home</a>
-                    <a class="page-link" href="/projects">Projects</a>
-                    <a class="page-link" href="/contact">Contact</a>
-                    <!-- <a class="page-link" href="">Credits</a> -->
-                </nav>
-            </div>
-        </div>
-    </header>
-
-    <main class="container">
-        
-        
-
-    </main>
-
+  <main class="container">
+    <!-- Page content -->
+  </main>
 </body>
 </html>

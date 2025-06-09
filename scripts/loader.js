@@ -1,13 +1,14 @@
 // Run scripts only after loaded
-
+document.body.style.visibility = "none";
 if (!document.loader){
     let urlData = new URL(window.location.href);
     let pathname = urlData.pathname.replaceAll("/index.html", "/");
     document.loader = 1;
+    const isDemos = pathname.includes("demos");
 
     function loaded(){
         let scr2Run = ["/scripts/text_loader"]
-        if (pathname != "/"){
+        if (pathname != "/" && !isDemos){
             scr2Run.push([pathname + pathname.replaceAll("/", "")])
         }
         for (sc of scr2Run){
@@ -19,16 +20,26 @@ if (!document.loader){
                     document.body.appendChild(scr);
                 });
         }
-    }
 
-    let pathName2Load;
-    if (pathname == "/") {
-        pathName2Load = "/htmls/home";
-    } else {
-        pathName2Load = "/index";
+        requestIdleCallback(() => {
+            document.body.style.transition = "opacity 0.4s ease";
+            document.body.style.visibility = "visible";
+            document.body.style.opacity = "1";
+        });
+
+
+        // document.body.style.visibility = "visible";
+        // document.body.style.opacity = "1";
     }
-    
-    $("#content").load(pathName2Load + '.html');
+    if (!isDemos){
+        let pathName2Load;
+        if (pathname == "/") {
+            pathName2Load = "/demos/demos";
+        } else {
+            pathName2Load = "/index";
+        }
+        $("#content").load(pathName2Load + '.html');
+    }
     
     $("#header").load('/htmls/header.html');
     
