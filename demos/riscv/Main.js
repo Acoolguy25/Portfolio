@@ -13,6 +13,7 @@ let onResize;
 
 /* ---------- build terminals ---------- */
 const terms = [], panes = [], fits = [];
+let terminal;
 const screenButtons = document.getElementById("screen-buttons")
 const starterButtons = document.getElementsByClassName("controls-bar")[0]
 const termContainer = document.getElementById("terminal-container")
@@ -42,8 +43,10 @@ for (let i = 0; i < SCREENS; i++) {
 
     if (i === 0) {
         term.writeln("This is a RISC-V emulator written in Rust + WASM.");
+        term.writeln("Click “Run Games to boot my shell with games running on all 3 screens.");
         term.writeln("Click “Run Demo” to boot my stand-alone shell.");
         term.writeln("");
+        terminal = term
     }
     else{
         term.writeln("To display content asynchronously on this screen, run the following command:")
@@ -76,6 +79,7 @@ function show(idx) {
     panes[idx].style.display = 'flex';
     panes[idx].setAttribute("tabindex", "0");
     terms[idx].focus()
+    terminal = terms[idx]
     onResize();
     
   }
@@ -106,6 +110,7 @@ document
             console.error(`Error attempting to enable fullscreen: ${err.message}`);
           });
           btn.classList.add("active")
+          terminal.focus()
         }
       }
       else{
