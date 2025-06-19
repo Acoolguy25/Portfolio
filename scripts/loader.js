@@ -21,12 +21,11 @@ if (!document.loader){
                 });
         }
 
-        requestIdleCallback(() => {
-            document.body.style.transition = "opacity 0.4s ease";
+        requestAnimationFrame(() => {
+            document.body.style.transition = "opacity 0.8s ease";
             document.body.style.visibility = "visible";
             document.body.style.opacity = "1";
         });
-
 
         // document.body.style.visibility = "visible";
         // document.body.style.opacity = "1";
