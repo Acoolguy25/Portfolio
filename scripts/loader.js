@@ -6,6 +6,10 @@ if (!document.loader){
     document.loader = 1;
     const isDemos = pathname.includes("demos");
 
+    document.body.style.transition = "opacity 0.8s ease";
+    document.body.style.visibility = "visible";
+    document.body.style.opacity = "0";
+
     function loaded(){
         let scr2Run = ["/scripts/text_loader"]
         if (pathname != "/" && !isDemos){
