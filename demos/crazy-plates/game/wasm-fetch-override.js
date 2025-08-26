@@ -7,7 +7,7 @@ window.fetch = async function(url, options) {
         console.log('Intercepting fetch for Web.wasm:', url);
 
         const wasmParts = [];
-        for (let i = 1; i <= 6; i++) {
+        for (let i = 1; i <= 2; i++) {
             wasmParts.push(`Build/Web.wasm.part${i}`);
         }
 
