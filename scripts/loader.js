@@ -1,6 +1,7 @@
 // Run scripts only after loaded
 document.body.style.visibility = "none";
 if (!document.loader){
+    
     let urlData = new URL(window.location.href);
     let pathname = urlData.pathname.replaceAll("/index.html", "/");
     document.loader = 1;
@@ -34,16 +35,25 @@ if (!document.loader){
         // document.body.style.visibility = "visible";
         // document.body.style.opacity = "1";
     }
-    if (!isDemos){
-        let pathName2Load;
+    let pathName2Load = '';
+    if (!isDemos){ // demos
         if (pathname == "/") {
             pathName2Load = "/demos/demos";
-        } else {
+        }
+        else {
             pathName2Load = "/index";
         }
+    }
+    else{ // not demos
+        // if (pathname == "/demos/crazy-plates/"){
+            // pathName2Load = "/demos/crazy-plates/game/game"
+        // }
+        // using iframe instead!
+    }
+    if (pathName2Load != ""){
+        console.log("Loading " + pathName2Load + ".html")
         $("#content").load(pathName2Load + '.html');
     }
-    
     $("#header").load('/htmls/header.html');
     
     
